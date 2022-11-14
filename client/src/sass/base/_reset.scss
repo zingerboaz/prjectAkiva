@@ -1,0 +1,50 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 10px;
+  @media (max-width: 1440px) {
+    font-size: 10px;
+  }
+  @media (max-width: 886px) {
+    font-size: 7px;
+  }
+  @media (max-width: 460px) {
+    font-size: 6px;
+  }
+  overflow-y:scroll;
+}
+.mat-form-field-underline {
+  display: none;
+}
+
+.mat-expansion-panel-content .mat-expansion-panel-body {
+  padding: 0;
+}
+.mat-expansion-panel-content {
+  font-family: "Open Sans", sans-serif;
+}
+
+input {
+  outline: 0;
+  border: 0;
+}
+canvas {
+  cursor: pointer;
+}
+
+
+button, button:focus{
+  outline: none;
+}
+.mat-simple-snackbar{
+  text-align: center;
+}
+
+

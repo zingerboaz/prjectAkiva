@@ -1,0 +1,34 @@
+<div class="component">
+  <div class="component__name">
+    <ng-select
+    class="custom"
+    (change)="onEnterInstitutionName($event)"
+    [placeholder]="'הקלידו שם מוסד '"
+    [typeahead]
+    notFoundText="לא נמצאו מוסדות המתאימים לחיפוש"
+    [clearable]="false"
+    [items]="institutionList"
+    bindLabel="name"
+    [(ngModel)]="institutionFromStore"
+    >
+    </ng-select>
+  </div>
+
+  <div class="divisionbar"></div>
+
+  <div class="component__date">
+    <ng-select
+    class="custom"
+    (change)="onEnterYear($event)"
+    [placeholder]="'תאריך'"
+    [typeahead]
+    [notFoundText]="yearsByInstitution[0] ? 'בחר שנה מתוך הרשימה' : 'יש לבחור מוסד'"
+    [clearable]="false"
+    [items]="yearsByInstitution"
+    bindLabel="fullName"
+    [(ngModel)]="yearFromStore"
+    >
+  </ng-select>
+</div>
+
+</div>

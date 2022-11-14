@@ -1,0 +1,1 @@
+default_app_config = 'ba_main.apps.BaMainConfig'

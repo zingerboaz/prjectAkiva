@@ -1,0 +1,45 @@
+.component {
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  direction: rtl;
+  font-size: 1.5rem;
+  text-align: right;
+  margin-right: 10px;
+
+
+  .component__name {
+    width: 30rem;
+    margin-left: 2rem;
+    .ng-select ::ng-deep .ng-value-container {
+      background-image: url(../../../assets/images/search-icon.png);
+      background-repeat: no-repeat;
+      background-position: 100%;
+      margin-right: -20px;
+    }
+
+  }
+
+  .component__date {
+    width: 20rem;
+    margin-right: 2rem;
+    font-weight: bold;
+
+  }
+
+  .divisionbar {
+    border-left: 1px solid black;
+    height: 5rem;
+  }
+}
+.ng-select ::ng-deep .ng-select-container {
+  height: 7rem;
+  padding: 0 2rem 0 2rem;
+  border: none;
+
+}
+
+ng-select ::ng-deep .ng-value-container {
+  padding: 26px;
+}

@@ -1,0 +1,27 @@
+<div class="expansion" (click)="onOpenExpansion()">
+  <div class="expansion__header">
+    <div class="header__right-side">
+      <div class="right-side__arrow" [ngClass]="{ 'right-side__arrow--open': openMode }">
+        <img src="/assets/images/down.png" />
+      </div>
+      <div class="right-side__icon">
+        <img src="{{ details.iconPath }}" />
+      </div>
+      <div>{{ details.name }} </div>
+    </div>
+
+    <div class="header__left-side">
+      <div class="averageRest">
+        <h6>מוסד נבחר</h6>
+        <mat-progress-bar  mode="determinate" [value]="ownRest" >
+        </mat-progress-bar>
+      </div>
+      <div class="ownRest">
+        <h6>ממוצע כל המוסדות</h6>
+        <mat-progress-bar mode="determinate" [value]="averageRest" [color]="color"></mat-progress-bar>
+
+      </div>
+      </div>
+    </div>
+    <ng-content *ngIf="openMode"></ng-content>
+  </div>

@@ -1,0 +1,7 @@
+FROM postgres:14
+#create (broken) files
+ RUN mkdir -p /usr/local/var/postgres/pg_tblspc/memory/PG_14_202107181/pgsql_tmp
+ RUN mkdir -p /usr/local/var/postgres/pg_tblspc/memory/PG_14_202107181
+
+#restoration old volume
+#  ADD ./backupVol /var/lib/postgresql/data

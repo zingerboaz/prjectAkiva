@@ -1,0 +1,27 @@
+.main{
+  display: flex;
+  direction: rtl;
+}
+
+.main__header--background{
+  background-image: url("/assets/images/search-bar-background.png");
+  background-size: 100% 100%;
+  background-size: 100%;
+
+
+  mat-progress-bar{
+    position: absolute;
+  }
+}
+.main__generalInfo{
+    display: none;
+}
+
+.column_nav{
+  width: 20%;
+}
+
+
+.column_principal{
+  width: 80%;
+}

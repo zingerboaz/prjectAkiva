@@ -1,0 +1,35 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  .wrapper__label {
+    color: #0B2559;
+    font-size: 1.4rem;
+    position: relative;
+    right: 8px;
+    top: 15px;
+    background-color: white;
+    padding: 0 3px 0 3px;
+  }
+  .wrapper__input {
+    background-color: white;
+    font-size: 1.8rem;
+    outline: 0;
+    border: 1px solid #397cb7;
+    border-radius: 4px;
+    width: 100%;
+    height: 5.5rem;
+    display: flex;
+    direction: rtl;
+    justify-content: space-between;
+    padding: 1rem;
+
+    .datepicker-icon{
+      cursor: pointer;
+    }
+    input {
+      width: 90%;
+    }
+
+  }
+}

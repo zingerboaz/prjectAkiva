@@ -1,0 +1,94 @@
+version: "3.7"
+services:
+  nginx:
+    container_name: bneiakiva-nginx
+    image: nginx:1.13.9-alpine
+    volumes:
+      - ./nginx/nginx-dev:/etc/nginx/conf.d
+    command: >
+             sh -c 'while :; do sleep 1h; nginx -s reload; done & exec nginx -g "daemon off;"'
+
+            
+    ports:
+      - "80:80"
+    restart: always
+    depends_on:
+     - bneiakiva-django
+    #- bneiakiva-angular
+    
+
+  angular:
+    container_name: bneiakiva-angular
+    restart: always
+    build:
+      context: .
+      dockerfile: docker/Dockerfile-local-angular
+    volumes:
+      - "./client:/usr/app"
+      - '/usr/app/node_modules'
+    ports:
+       - "4200:4200"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - NODE_ENV=development
+    # command: ping 8.8.8.8
+    # command: ng serve  --host 0.0.0.0 
+
+
+
+
+  bneiakiva-django:
+    container_name: bneiakiva-django
+    build:
+      context: .
+      dockerfile: docker/Dockerfile-local-django
+      args:
+        - debug=True
+
+    command: >
+      sh -c "python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000 "
+    ports:
+      - 8888:8000
+    restart: always
+    env_file:
+      - db.env
+    depends_on:
+      - postgres
+
+    volumes:
+      - ./django:/src
+
+
+  postgres:
+    container_name: postgres
+    build:
+       context: .
+       dockerfile: docker/Dockerfile-postgres
+    restart: always
+    env_file:
+      - db.env
+    ports:
+      - 5433:5432
+    volumes:
+      -  postgres-devops-Vol:/var/lib/postgresql/data
+
+
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: bneiakiva-pgadmin
+    restart: always
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@ba.com
+      - PGADMIN_DEFAULT_PASSWORD=pwdpwd
+    ports:
+      - "5050:80"
+
+
+volumes:
+  postgres-devops-Vol: {}
+
+
+
+
+#--disable-host-check

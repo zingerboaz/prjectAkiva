@@ -1,0 +1,107 @@
+.component {
+  display: flex;
+  justify-content: center;
+  // align-items: center;
+  font-family: "Open Sans", sans-serif;
+  background-color: #0B2559;
+  color: #F8F8F8;
+  font-size: 2.2rem;
+  min-height: 100%;
+  line-height: 40px;
+  padding: 0%;
+  width: 290px;
+
+  // set differnte height  & font size
+  @media (max-width: 1055px) {
+    font-size: 1.8rem;
+    line-height: 315%;
+  }
+
+  @media (max-width: 620px) {
+    font-size: 1.4rem;
+    line-height: 400%;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 2.1rem;
+    line-height: 2.8rem;
+    height: 8rem;
+  }
+  @media (max-width: 340px) {
+    font-size: 1.6rem;
+    line-height: 2rem;
+  }
+
+  // set padding left & right
+  // in order to center the nav-bar in lag screens
+  @media (min-width: 1500px) {
+   // padding-right: 25rem;
+   // padding-left: 25rem;
+  }
+  @media (min-width: 1355px) {
+   // padding-right: 13rem;
+   // padding-left: 13rem;
+  }
+  @media (max-width: 600px) {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+}
+.component--institution-mode{
+  @media (min-width: 1355px) {
+   // padding-right: 5rem;
+  //  padding-left: 5rem;
+  }
+  @media (max-width: 1200px) {
+    font-size: 1.8rem;
+    line-height: 315%;
+  }
+}
+
+.component__nav-bar {
+  display: flex;
+  display: block;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 100%;
+  padding-top: 155px;
+
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
+}
+
+.nav-bar__tab {
+  display: flex;
+  align-items: center;
+  // justify-content: center;
+  text-align: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom:20px;
+  cursor: pointer;
+  outline: 0;
+  font-size: 18px;
+}
+.nav-bar__tab--active {
+  background-color: #3e6982;
+  outline: 0;
+  // border-bottom: 3px solid #5b94ae;
+}
+
+.logos{
+  // position: absolute;
+  // top:0;
+  width: 100%;
+  margin-top: -152px;
+
+  img{
+    width: 100%;
+    margin-bottom: 40px;
+  }
+}
+ .nav-bar__tab img{
+   padding:12px;
+ }

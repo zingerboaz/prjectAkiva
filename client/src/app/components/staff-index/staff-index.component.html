@@ -1,0 +1,45 @@
+<div class="component">
+  <app-custom-expansion
+    class="component__expansion"
+    *ngFor="let expansion of staffData"
+    [details]="expansion"
+    (openTuggle)="manageExpansions(expansion.name)"
+    [openMode]="expansion.name === openedExpansion"
+  >
+    <app-expansion-content-bar
+      *ngIf="expansion.subjects.length"
+      [headerText]="expansion.name"
+      [openedExpansion]="openedExpansion"
+      [sayings]="expansion.subjects"
+      [sections]="expansion.sections"
+    ></app-expansion-content-bar>
+  </app-custom-expansion>
+  <div class="component__input" *ngIf="is_editable_institution">
+    <app-custom-input
+      [label]="' פעולות ייחודיות הנעשות במוסד לטובת הצמחת הצוות'"
+      placeHolder="כתיבת פעולות ייחודיות..."
+      [control]="noteControl"
+    ></app-custom-input>
+    <button
+      (click)="onSaveNote()"
+      [disabled]="!noteControl.value"
+      [ngClass]="{ 'save-note-btn--disabled': !noteControl.value }"
+    >
+      שמירה הערה
+    </button>
+  </div>
+  <div class="component__input" *ngIf="is_editable_institution">
+    <app-custom-input
+      [label]="' שמירת מסקנה'"
+      placeHolder="כתיבת מסקנה..."
+      [control]="conclusionControl"
+    ></app-custom-input>
+    <button
+      (click)="onSaveConclusion()"
+      [disabled]="!conclusionControl.value"
+      [ngClass]="{ 'save-conclusion-btn--disabled': !conclusionControl.value }"
+    >
+      שמירה מסקנה
+    </button>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div
+  class="component"
+  [ngClass]="{ 'component--institution-mode': mode === 'institution' }"
+>
+  <div class="component__nav-bar">
+    <div class="logos">
+      <img class="bney-akiva-logo" src="../../../assets/images/new-logo.jpg" />
+      <!-- <img class="minal-hinouh-logo" src="../../../assets/images/minal-hinouh-new-logo.png" /> -->
+    </div>
+    <div
+      class="nav-bar__tab"
+      *ngFor="let tab of tabList"
+      [routerLink]="[tab.path]"
+      routerLinkActive="nav-bar__tab--active"
+    >
+    <img [src]= "[tab.icon]">
+       {{ tab.name }}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+{% extends 'admin/change_list.html' %}
+{% block object-tools %}
+    <form
+            id="participation-excel-uploading"
+            method="POST"
+            action="/django/api/v1/fetch_data"
+            enctype="multipart/form-data"
+            style="margin-bottom: 15px;"
+
+    >
+        {% csrf_token %}
+    <h3>Fetch Institutions Data</h3>
+    <label>Year
+        <select name="year" required >
+            <option value=""></option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+        </select>
+    </label>
+
+    <button class="button" type="reset" style="padding: 5px 10px;">Clear</button>
+    <button class="button" type="submit" style="padding: 5px 10px;">Submit</button>
+    </form>
+    <hr>
+     <form
+            id="participation-excel-uploading"
+            method="POST"
+            action="/django/api/v1/institutions/basic_details"
+            enctype="multipart/form-data"
+            style="margin-bottom: 15px;"
+
+    >
+        {% csrf_token %}
+    <h3>Basic Institutions Details</h3>
+    <label>Upload Excel File Here
+       <input type="file" name="data_file" required>
+    </label>
+
+    <button class="button" type="reset" style="padding: 5px 10px;">Clear</button>
+    <button class="button" type="submit" style="padding: 5px 10px;">Submit</button>
+    </form>
+
+    {{ block.super }}
+{% endblock object-tools %}

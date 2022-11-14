@@ -1,0 +1,26 @@
+<div class="wrapper">
+  <div class="left-side">
+    <div>
+      <div>
+        {{ currentUser.user.first_name }}
+        {{ currentUser.user.last_name }}
+      </div>
+      <div class="role">
+        {{ currentUser?.user?.role?.name ? currentUser.user.role?.name : '' }}
+      </div>
+    </div>
+    <img class="userpic" [src]="
+    currentUser.user
+    ?.image_profile
+    ? currentUser.user.image_profile
+    : '../../../assets/images/fake_user.jpg'
+
+    " />
+    <div class="divisionbar"></div>
+    <img class="logout" src="../../../assets/images/logout.png" (click)="logout()" />
+  </div>
+  <div></div>
+
+  <app-search-bar></app-search-bar>
+
+</div>

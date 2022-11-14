@@ -1,0 +1,149 @@
+<div class="component">
+  <button
+    (click)="openDialog(item.title)"
+    *ngFor="let item of imageData"
+    [ngStyle]="item.style"
+    title="{{ goalsDiscriptions[item.name] }}"
+  >
+    <app-interface-image
+      [title]="item.title"
+      [src]="item.src"
+    ></app-interface-image>
+  </button>
+</div>
+<!--
+<form [formGroup]="formGroup" (ngSubmit)="onSave()" disabled>
+    <div class="component">
+        <div class="title">תוכנית עבודה</div>
+        <div class="component__save">
+            <button
+                class="save__btn"
+                type="submit"
+                [ngClass]="{'save__btn--disabled': formGroup.invalid }"
+                [disabled]="formGroup.invalid">
+                שמירה
+            </button>
+        </div>
+        <div
+            class="component__expansion"
+            *ngFor="let expansion of goalsKeys; let exIndex = index"
+            [formGroupName]="yearGoals[expansion].scope.toLowerCase()">
+            <div
+                class="expansion__header">
+                <span
+                    class="question_icon"
+                    title="{{ goalsDiscriptions[expansion] }}">
+                    <img src="../../../assets/images/question-icon.png" width="20px">
+                </span>
+                <span>{{ yearGoals[expansion].scopeName }}</span>
+            </div>
+            <span
+                class="expansion__arrow"
+                [ngClass]="{ 'expansion__arrow--opened': openedExpansion === yearGoals[expansion].scope }"
+                (click)="onExpansionClicked(yearGoals[expansion].scope)">
+                <img src="../../../assets/images/down.png" />
+            </span>
+
+            <div
+                class="expansion__content"
+                *ngIf="openedExpansion === yearGoals[expansion].scope" [@openAndClose]>
+                <div
+                    class="content__goal">
+                    <app-custom-input
+                        class="goal__input"
+                        [label]="'יעד'"
+                        [placeHolder]="'כאן יש לכתוב יעד'"
+                        [control]="getScopeDescriptionControl(expansion)" ngDefaultControl>
+                    </app-custom-input>
+                    <app-custom-input
+                        class="goal__input"
+                        [label]="'הסיבה לבחירת היעד'"
+                        [placeHolder]="'כאן יש לכתוב סיבה'"
+                        [control]="getScopeReasonControl(expansion)"
+                        ngDefaultControl>
+                    </app-custom-input>
+                </div>
+
+                <div class="content__goal">
+                    <app-custom-input
+                        class="goal__input"
+                        [label]="'יעד 2 '"
+                        [placeHolder]="'כאן יש לכתוב יעד'"
+                        [control]="getScopeDescription2Control(expansion)" ngDefaultControl>
+                    </app-custom-input>
+                    <app-custom-input
+                        class="goal__input"
+                        [label]="'הסיבה לבחירת היעד 2 '"
+                        [placeHolder]="'כאן יש לכתוב סיבה'"
+                        [control]="getScopeReason2Control(expansion)"
+                        ngDefaultControl>
+                    </app-custom-input>
+                </div>
+
+
+            <div
+                class="content__action"
+                    *ngFor="
+                    let action of yearGoals[expansion].action_ways;
+                    let actionIndex = index;
+                    let isLast = last
+                    "[ngClass]="{'content__action--last': isLast}">
+                    <div
+                        class="action__header">
+                        <app-custom-input
+                            class="header__name"
+                            [label]="'דרך פעולה ' + (actionIndex + 1)"
+                            [placeHolder]="'דרך פעולה'"
+                            [control]="getActionDirectionControl(expansion, actionIndex)"
+                            ngDefaultControl>
+                        </app-custom-input>
+                        <app-custom-input
+                            class="header__measure"
+                            [label]="'מדד הצלחה'"
+                            [placeHolder]="'מדד הצלחה'"
+                            [control]="getActionSuccessIndicesControl(expansion, actionIndex)">
+                        </app-custom-input>
+                        <div
+                            class="action__add-milestone"
+                            (click)="onAddMilestone(expansion, actionIndex)">
+                            <svg width="25" height="25" viewBox="0 0 25 25" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12.3989" cy="12.8477" r="11.5" stroke="#397CB7" />
+                                <path
+                                    d="M12.9156 12.3312H17.3989C17.5359 12.3312 17.6673 12.3856 17.7642 12.4825C17.8611 12.5794 17.9156 12.7108 17.9156 12.8478C17.9156 12.9848 17.8611 13.1163 17.7642 13.2132C17.6673 13.3101 17.5359 13.3645 17.3989 13.3645H12.9156V17.8478C12.9156 17.9848 12.8611 18.1163 12.7642 18.2132C12.6673 18.3101 12.5359 18.3645 12.3989 18.3645C12.2619 18.3645 12.1304 18.3101 12.0335 18.2132C11.9367 18.1163 11.8822 17.9848 11.8822 17.8478V13.3395H7.40359C7.33717 13.3454 7.27023 13.3374 7.20705 13.3159C7.1422 13.2939 7.08283 13.2582 7.03293 13.2113C6.98303 13.1644 6.94377 13.1074 6.91778 13.044C6.89204 12.9812 6.87992 12.9137 6.88223 12.8459C6.88225 12.8453 6.88227 12.8447 6.88229 12.844L6.98222 12.8478L12.9156 12.3312ZM12.9156 12.3312V7.84782C12.9156 7.71079 12.8611 7.57937 12.7642 7.48248C12.6673 7.38559 12.5359 7.33115 12.3989 7.33115C12.2619 7.33115 12.1304 7.38559 12.0335 7.48248C11.9367 7.57937 11.8822 7.71079 11.8822 7.84782V12.3312H12.9156Z"
+                                    fill="#397CB7" stroke="#397CB7" stroke-width="0.2" />
+                            </svg>
+                            הוספת אבן דרך
+                        </div>
+                    </div>
+                    <div
+                        class="milestone"
+                        *ngFor="let milestone of action.milestones;
+                        let milestoneIndex = index">
+                        <app-calander-input
+                            class="milestone__date"
+                            [control]="getMilestoneDateControl(expansion, actionIndex, milestoneIndex)"
+                            ngDefaultControl>
+                        </app-calander-input>
+                        <app-custom-input
+                            class="milestone__description"
+                            [label]="'פרוט פעולות מעשיות'"
+                            [placeHolder]="'פרוט פעולות מעשיות'"
+                            [control]="getMilestoneDescriptionControl(expansion, actionIndex, milestoneIndex)"
+                            ngDefaultControl>
+                        </app-custom-input>
+                    </div>
+
+                    <div
+                        class="content__action"
+                        *ngFor="
+                let action of yearGoals[expansion].action_ways;
+                let actionIndex = index;
+                let isLast = last
+              " [ngClass]="{'content__action--last': isLast}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form> -->

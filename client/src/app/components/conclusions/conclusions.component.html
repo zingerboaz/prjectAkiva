@@ -1,0 +1,6 @@
+<div class="component">
+  <div class="component__field"  *ngFor="let conclusion of filterConclusions()">
+      <div class="field__header" *ngIf="conclusion !== null">{{ conclusion.title }}</div>
+      <div class="field__content"  *ngIf="conclusion !== null">{{ conclusion.conclusion }}</div>
+  </div>
+</div>

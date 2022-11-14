@@ -1,0 +1,13 @@
+<div class="component">
+  <button
+    (click)="openDialog(item.title)"
+    *ngFor="let item of imageData"
+    [ngStyle]="item.style"
+    title="{{ goalsDiscriptions[item.name] }}"
+  >
+    <app-interface-image
+      [title]="item.title"
+      [src]="item.src"
+    ></app-interface-image>
+  </button>
+</div>

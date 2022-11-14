@@ -1,0 +1,64 @@
+<div class="panels__content" *ngIf="yearGoals !== undefined">
+    <header [ngStyle]="{'background-color':getBackgroundColor(yearGoals.scope.toLowerCase())}">
+        <h1>
+            {{ yearGoals.scopeName }}
+        </h1>
+    </header>
+    <div class="content">
+        <div class="content_article">
+            <h3>יעד</h3>
+            <hr>
+            <article>
+                {{ yearGoals.description }}
+            </article>
+        </div>
+        <div class="content_article">
+            <h3>הסיבה לבחירת התוכנית</h3>
+            <hr>
+            <article>
+                {{ yearGoals.reason }}
+            </article>
+        </div>
+    </div>
+    <div class="action_ways" >
+        <div class="milestone" [ngStyle]="{'box-shadow': getBoxShadowColor(yearGoals.scope.toLowerCase())}"
+            *ngIf="(yearGoals.action_ways[0].milestones.length)>0">
+            <h3>{{yearGoals.action_ways[0].direction}} {{ yearGoals.action_ways[0].success_indice ? '[' + yearGoals.action_ways[0].success_indice + ']' : '' }}</h3>
+            <div *ngFor="let stone of yearGoals.action_ways[0].milestones">
+                <p class="content__milestone">אבן דרך בתאריך {{ stone.date }}</p>
+                <article>
+                    {{ stone.description ? stone.description : 'לא נרשמו פעולות' }}
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="content_article">
+            <h3>יעד  2</h3>
+            <hr>
+            <article>
+                {{ yearGoals.description2 }}
+            </article>
+        </div>
+        <div class="content_article">
+            <h3>הסיבה לבחירת התוכנית  2</h3>
+            <hr>
+            <article>
+                {{ yearGoals.reason2 }}
+            </article>
+        </div>
+    </div>
+    <div class="action_ways">
+        <div class="milestone" [ngStyle]="{'box-shadow': getBoxShadowColor(yearGoals.scope.toLowerCase())}"
+            *ngIf="(yearGoals.action_ways[1].milestones.length)>0">
+            <h3>{{yearGoals.action_ways[1].direction}} {{ yearGoals.action_ways[1].success_indice ? '[' + yearGoals.action_ways[1].success_indice + ']' : '' }}</h3>
+            <div *ngFor="let stone of yearGoals.action_ways[1].milestones">
+                <p class="content__milestone">אבן דרך בתאריך {{ stone.date }}</p>
+                <article>
+                    {{ stone.description ? stone.description : 'לא נרשמו פעולות' }}
+                </article>
+            </div>
+        </div>
+    </div>
+</div>

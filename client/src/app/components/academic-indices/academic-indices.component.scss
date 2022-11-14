@@ -1,0 +1,143 @@
+.component {
+  display: flex;
+  flex-direction: column;
+  font-size: 2.2rem;
+  padding: 5rem 8rem 5rem 8rem;
+  @media(max-width: 1700px){
+    padding: 3rem 3rem 3rem 3rem;
+  }
+  direction: rtl;
+  padding-bottom: 5rem;
+
+  .component__special-education-checkbox{
+    display: flex;
+    padding-bottom: 3rem;
+    align-items: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #164A6B;
+
+    input{
+      width: 1.8rem;
+      height: 1.8rem;
+      border: 2px solid #397cb7;
+      border-radius: 2px;
+      margin-left: 2rem;
+
+    }
+
+    // input :not(:checked){
+    //   -webkit-appearance: none;
+
+    // }
+
+  }
+  .component__expansion{
+    margin-bottom: 3rem;
+  }
+
+  .component__input{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    app-custom-input{
+      width: 100%;
+      // margin-left: 3rem;
+    }
+    button{
+      height: 100%;
+      background-color: #ABC03F;
+      color: black;
+      border-radius: 50px;
+      outline: none;
+      cursor: pointer;
+      border: none;
+      font-size: 1.8rem;
+      padding: 1rem 2rem 1rem 2rem;
+      margin-bottom: 0.5rem;
+      background-image: url(../../../assets/images/icon-save-conclusion.png);
+      background-repeat: no-repeat;
+      background-position: 93%;
+      width: 170px;
+      margin: -18px 60px;
+    }
+    .save-conclusion-btn--disabled{
+      background-color:  #ABC03F;
+      cursor: auto;
+      margin: -18px 60px;
+    }
+  }
+
+  .component__multiple_input{
+    position: relative;
+    .expect_input{
+      border-style: solid;
+      border-color: #b5c75736;
+      border-radius: 13px;
+      padding: 22px;
+      padding-bottom: 33px;
+      margin-bottom: 54px;
+      background-color: #e5e5e5ab;
+    }
+    button{
+      background-color: #ABC03F;
+      color: black;
+      border-radius: 50px;
+      outline: none;
+      cursor: pointer;
+      border: none;
+      font-size: 1.8rem;
+      padding: 1rem 2rem 1rem 2rem;
+      margin-bottom: 0.5rem;
+      background-image: url(../../../assets/images/icon-save-conclusion.png);
+      background-repeat: no-repeat;
+      background-position: 93%;
+      width: 170px;
+      margin: 0px 60px;
+      position: absolute;
+      top: 81%;
+      left: 0px;
+    }
+    .save-expect-btn--disabled{
+      background-color:  #ABC03F;
+      cursor: auto;
+    }
+  }
+
+  .input_upload-file{
+    display: flex;
+    direction: rtl;
+
+  }
+
+  .input_upload-file button{
+    background-color : #397cb7;
+    border-radius: 25px;
+    color: white;
+    width: 162px;
+    margin: 10px 15px;
+  }
+
+  .input_upload-file a{
+    color: white;
+  }
+
+  .title-upload-exel-file{
+    background-image:url(../../../assets/images/cloud-computing.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+    display: flex;
+    direction: rtl;
+    margin-bottom: 15px;
+    font-size: font-size;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0B2559;
+    background-position: 100%;
+    font-weight: bold;
+    padding-right: 43px;
+  }
+}

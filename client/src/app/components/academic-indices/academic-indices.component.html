@@ -1,0 +1,72 @@
+<div class="component">
+  <div class="component__special-education-checkbox">
+    <input type="checkbox" (change)="onCheckBoxChange()" [formControl]="specialEducationControl"/>
+    <div>כולל חינוך מיוחד</div>
+  </div>
+  <app-custom-expansion class="component__expansion" *ngFor="let expansion of academicsData" [details]="expansion"
+                        (openTuggle)="manageExpansions(expansion.name)" [openMode]="expansion.name === openedExpansion"
+                        [includeSpecial]="specialEducationControl.value">
+    <ng-container *ngIf="expansion.subjects.length">
+      <ng-container *ngIf="expansion?.subjects[0].name != 'ONLY_VALUE'; then expansionBar else expansionLine">
+      </ng-container>
+    </ng-container>
+    <ng-template #expansionBar>
+      <app-expansion-content-bar [headerText]="expansion.name" [openedExpansion]="openedExpansion"
+                                 [sayings]="expansion.subjects" [sections]="expansion.sections"
+                                 [includeSpecial]="specialEducationControl.value">
+      </app-expansion-content-bar>
+    </ng-template>
+    <ng-template #expansionLine>
+      <app-expansion-content-line [headerText]="expansion.name" [openedExpansion]="openedExpansion"
+                                  [sections]="expansion.sections" [lineData]="expansion.subjects"
+                                  [includeSpecial]="specialEducationControl.value"></app-expansion-content-line>
+    </ng-template>
+  </app-custom-expansion>
+
+  <div class="component__multiple_input">
+    <div class="expect_input">
+       <app-custom-input-multiple
+        [label]="'צפי לשנה נוכחית'"
+        [input_details]="input_details"
+        [formControls]="expectControl.controls.current_expect"
+        [is_editable_institution]="is_editable_institution">
+      </app-custom-input-multiple>
+      <br>
+      <app-custom-input-multiple
+        [label]="'צפי לשנה שעברה'"
+        [input_details]="input_details"
+        [formControls]="expectControl.controls.last_expect"
+        [is_editable_institution]="is_editable_institution">
+      </app-custom-input-multiple>
+    </div>
+    <button (click)="onSaveExpect()" [disabled]="!is_editable_institution"
+            [ngClass]="{'save-expect-btn--disabled': !is_editable_institution}" *ngIf="is_editable_institution">שמירת צפי
+    </button>
+  </div>
+
+  <div class="component__input" *ngIf="is_editable_institution">
+    <app-custom-input [label]="'שמירת מסקנה'" placeHolder="כתיבת מסקנה..." [control]="conclusionControl">
+    </app-custom-input>
+    <button (click)="onSaveConclusion()" [disabled]="!conclusionControl.value"
+            [ngClass]="{'save-conclusion-btn--disabled': !conclusionControl.value}">שמירת מסקנה
+    </button>
+  </div>
+
+  <div class="title-upload-exel-file">הוספת קובץ (xlsx.)excel</div>
+  <div class="input_upload-file">
+    <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+      <span>
+        <input type="file" name="profile" accept=".xlsx" class="upload-file_input"
+               (change)="onFileSelect($event)"/>
+      </span>
+      <span>
+        <button type="submit">Upload</button>
+      </span>
+      <span>
+        <button>
+          <a download="מדדים תורניים" target="_blank" href="/assets/torani_data.xlsx">הורד קובץ דוגמה</a>
+        </button>
+      </span>
+    </form>
+  </div>
+</div>

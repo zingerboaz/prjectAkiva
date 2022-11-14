@@ -1,0 +1,39 @@
+<div class="input-box">
+  <div class="box__wrapper">
+    <label *ngIf="label" class="input-label">{{label}}</label>
+    <div class="inputs_line">
+      <ng-container>
+        <div class="input-box" *ngFor="let details of input_details;">
+          <span class="header">{{details.header}} </span>
+          <span class="percentage">%</span>
+          <input
+            [(ngModel)]="formControls.value[details.control]"
+            (input)="onChange($event)"
+            type="number"
+            step="1"
+            pattern="\d+"
+            max="100"
+            min="0"
+            [readonly]="!is_editable_institution"
+          />
+        </div>
+      </ng-container>
+      <ng-template>
+        <div class="input-box" *ngFor="let details of input_details;">
+          <span class="header">{{details.header}}</span>
+          <span class="percentage">%</span>
+          <input
+            [(ngModel)]="formControls.value[details.control]"
+            (input)="onChange($event)"
+            type="number"
+            step="1"
+            pattern="\d+"
+            max="100"
+            min="0"
+            [readonly]="!is_editable_institution"
+          />
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

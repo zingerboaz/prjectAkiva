@@ -1,0 +1,11 @@
+<div class="input-box">
+  <div class="box__wrapper">
+    <label *ngIf="label" class="input-label">{{label}}</label>
+    <input class="input"
+           [placeholder]="placeHolder"
+           [formControl]="control"
+           (input)="onChange($event)"
+    />
+  </div>
+</div>
+

@@ -1,0 +1,17 @@
+// This file shuold contain all the css imports of the project
+@import 'abstracts/variables';
+@import 'abstracts/functions';
+@import 'abstracts/mixins';
+
+@import 'base/reset';
+@import 'base/typography';
+
+@import 'components/input';
+@import 'components/select';
+@import 'components/button';
+
+
+@import 'layout/snack-bar';
+
+
+

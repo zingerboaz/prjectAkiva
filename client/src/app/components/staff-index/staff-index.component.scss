@@ -1,0 +1,50 @@
+.component {
+  display: flex;
+  flex-direction: column;
+  font-size: 2.2rem;
+  padding: 5rem 8rem 5rem 8rem;
+  @media(max-width: 1700px){
+    padding: 3rem 3rem 0 3rem;
+  }
+  direction: rtl;
+
+  .component__expansion{
+    margin-bottom: 3rem;
+  }
+
+
+  .component__input{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+
+    app-custom-input{
+      width: 100%;
+      // margin-left: 3rem;
+    }
+    button{
+      height: 100%;
+      background-color: #ABC03F;
+      color: black;
+      border-radius: 50px;
+      outline: none;
+      cursor: pointer;
+      border: none;
+      font-size: 1.8rem;
+      padding: 1rem 2rem 1rem 2rem;
+      margin-bottom: 0.5rem;
+      background-image: url(../../../assets/images/icon-save-conclusion.png);
+      background-repeat: no-repeat;
+      background-position: 93%;
+      width: 170px;
+      margin: -18px 60px;
+    }
+    .save-conclusion-btn--disabled{
+      background-color: #ABC03F;
+      cursor: auto;
+      margin: -18px 60px;
+    }
+  }
+}

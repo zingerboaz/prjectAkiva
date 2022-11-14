@@ -1,0 +1,241 @@
+.component {
+  padding: 5rem 8rem 5rem 8rem;
+  @media(max-width: 1400px){
+    padding: 3rem 3rem 35rem 3rem;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    padding: 5rem 8rem 5rem 8rem;
+    @media(max-width: 1300px){
+    padding: 3rem 3rem 5rem 3rem;
+
+    }
+  }
+  .row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .col {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+  }
+  .misradHachinuchButton {
+    height: 46px;
+    width: 180px;
+    background-color: #397cb7;
+    width: 220px;
+    margin-top: 52px;
+    padding-left: 46px;
+    padding-top: 8px;
+    border-radius: 25;
+    border-radius: 25px;
+    background-color: #397cb7;
+    font-size: 18px;
+    outline: none;
+    font-family: "OpenSansHebrewRegular";
+    color: white;
+    cursor: pointer;
+  }
+  .tohnitmenaelbutton {
+    height: 46px;
+    width: 180px;
+    background-color: #397cb7;
+    width: 220px;
+    margin-top: 22px;
+    padding-left: 46px;
+    padding-top: 8px;
+    border-radius: 25;
+    border-radius: 25px;
+    background-color: #397cb7;
+    font-size: 18px;
+    outline: none;
+    font-family: "OpenSansHebrewRegular";
+    color: white;
+    cursor: pointer;
+  }
+  .mosadOverView {
+    margin-top: 30px;
+    font-family: "OpenSansHebrewRegular";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 33px;
+    text-align: right;
+    letter-spacing: 0.01em;
+    color: #164a6b;
+  }
+  .overView-info {
+    margin-top: 11px;
+    font-size: 16px;
+    line-height: 25px;
+    text-align: right;
+    letter-spacing: 0.01em;
+    color: #333333;
+  }
+
+  .mosadLogo {
+    margin: 4.5rem 2rem 0 2rem;
+    border-radius: 50%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    // padding: 15px;
+    height: 13rem;
+    width: 13rem;
+
+    img{
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+    }
+  }
+
+  .stats {
+    margin-top: 70px;
+    padding: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e4edf5;
+    box-sizing: border-box;
+    border-radius: 4px;
+    height: 100%;
+  }
+
+  .stats-numbers {
+    font-family: "OpenSansHebrewRegular";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 49px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #164a6b;
+  }
+
+  .no-data {
+    font-family: "OpenSansHebrewRegular";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 49px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #8f9396;
+  }
+  .stats-name {
+    font-family: "OpenSansHebrewRegular";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 30px;
+    letter-spacing: 0.01em;
+    color: #164a6b;
+  }
+
+
+
+  .form__buttons {
+    button {
+      border-radius: 50px;
+      font-size: 2.2rem;
+      color: white;
+      margin-right: 3.5rem;
+      padding: 0.6rem 2rem 0.6rem 2rem;
+      border: none;
+      height: 4.5rem;
+      outline: none;
+    }
+
+    .buttons__save {
+      background-color: #225372;
+    }
+
+    .buttons__save--disabled{
+      background-color: #658294;
+    }
+
+    .buttons__link {
+      background-color: #397cb7;
+    }
+  }
+
+  .form__strength-story {
+    direction: rtl;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: right;
+    font-size: 1.8rem;
+    color: #4f4f4f;
+    margin-bottom: 4rem;
+    .strength-story__title {
+      font-size: 1.8rem;
+      color: #164a6b;
+      margin-bottom: 1.8rem;
+      font-weight: bold;
+      color: #164a6b;
+      img {
+        margin-left: 0.5rem;
+      }
+    }
+  }
+
+
+  textarea {
+    width: 95%;
+    // border: 1px solid #397cb7;
+    border-radius: 4px;
+    resize: none;
+    outline: none;
+    height: 12rem;
+    padding: 2rem;
+  }
+}
+
+
+.ng-select ::ng-deep .ng-select-container {
+  width: 35rem;
+  min-height: 8rem;
+  border: 1px solid #397cb7;
+  border-radius: 4px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 1rem 0 1rem;
+  // overflow: auto;
+}
+.ng-select.ng-select-single .ng-select-container .ng-value-container .ng-input{
+  top: auto;
+}
+
+.mat-expansion-panel{
+  border: 1px solid #397cb7;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.mat-expansion-panel-header{
+  height: 8rem;
+  width: 64rem;
+}
+
+
+.title_expension-institutionDataProgram textarea {
+  border: 1px solid #397cb7;
+  display: flex;
+  margin: 10px;
+  border-radius: 6px;
+  text-align: right;
+  width: 91%;
+  height: 45px;
+
+}

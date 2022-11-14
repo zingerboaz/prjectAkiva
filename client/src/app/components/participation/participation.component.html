@@ -1,0 +1,42 @@
+<div class="component">
+    <div class="component__charts">
+        <div class="charts__chart">
+            <div class="chart__header">השתתפות בתוכניות</div>
+            <canvas id="plansChart"></canvas>
+        </div>
+        <div class="charts__chart">
+            <div class="chart__header">השתתפות בכנסים</div>
+            <canvas id="conferencesChart"></canvas>
+        </div>
+    </div>
+    <div class="component__participation">
+        <div class="participation__details">
+            <div class="details__header">פירוט השתתפות בתוכניות</div>
+            <div class="details__v-or-x">
+                <ng-container *ngIf="plansData">
+                    <div class="v-or-x__value" *ngFor="let plan of plansData.subjects">
+                        <img src="/assets/images/checked.svg" *ngIf="plan.values.own"/>
+                        <img src="/assets/images/unchecked.svg" *ngIf="!plan.values.own"/>
+                        {{ plan.name }}
+                    </div>
+                </ng-container>
+            
+            </div>
+        </div>
+        <div>
+            <div class="participation__details">
+                <div class="details__header">פירוט השתתפות בכנסים</div>
+                <div class="details__v-or-x">
+                    <ng-container *ngIf="conferencesData">
+                        <div class="v-or-x__value" *ngFor="let conference of conferencesData.subjects">
+                            <img src="/assets/images/checked.svg" *ngIf="conference.values.own"/>
+                            <img src="/assets/images/unchecked.svg" *ngIf="!conference.values.own"/>
+                            {{ conference.name }}
+                        </div>
+                    </ng-container>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

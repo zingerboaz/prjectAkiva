@@ -1,0 +1,36 @@
+{
+    "Id": 5,
+    "Name": "בגרות",
+    "Classes": [
+        {
+            "Name": "כן",
+            "Indexes": [
+                {
+                    "Year": 2019,
+                    "HebYear": "תשע\"ט",
+                    "Id": "ACHUZ_ZAKAIM",
+                    "Name": "זכאות לבגרות",
+                    "Statements": null,
+                    "History": [
+                        {
+                            "Year": 2019,
+                            "HebYear": "תשע\"ט",
+                            "CompareValuesModel": [
+                                {
+                                    "Name": "מוסד נבחר ",
+                                    "Id": 0.0,
+                                    "Value": 22.900
+                                }
+                            ]
+                        }
+                    ],
+                    "Hashava": []
+                }
+            ]
+        }
+    ]
+}
+
+
+
+

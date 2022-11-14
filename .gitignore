@@ -1,0 +1,7 @@
+# Exclude python cache files
+__pycache__/
+.idea/
+.history/
+migrations/
+.vscode/
+venv/

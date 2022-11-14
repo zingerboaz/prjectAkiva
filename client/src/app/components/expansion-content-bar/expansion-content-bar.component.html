@@ -1,0 +1,18 @@
+<div class="content">
+  <div class="content__summary">
+  <div class="summary__header">המדד המסכם</div>
+  <div class="summary_graph">
+    <canvas [id]="bodyChartId" width="450" height="250"></canvas>
+  </div>
+</div>
+<div class="content__details" *ngIf="sayings && sayings[0]">
+  <div class="details__header">ההיגדים המרכיבים את המדד</div>
+  <div class="details__pieces" [ngClass]="{'details__pieces--border': !isLast}" *ngFor="let say of sayings; let isLast = last">
+    <div class="pieces__title">{{say.name}}</div>
+    <div class="pieces__charts">
+      <canvas [id]="say.id.toString()" width="200" height="100"></canvas>
+    </div>
+  </div>
+</div>
+</div>
+

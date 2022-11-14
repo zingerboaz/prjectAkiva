@@ -1,0 +1,67 @@
+def DOCKER_COMPOSE_NAME = "docker-compose -f docker-compose.yml"
+def GITLAB_NAME = "BNEI-AKIVA-PROD"
+
+pipeline { 
+    agent {label "${env.AGENT_LABEL}"}
+    stages {   
+        stage('Check status') {
+            steps {
+                script {
+                          sh 'whoami'
+                          sh 'git branch'
+                          sh "echo ${DOCKER_COMPOSE_NAME}"
+                          sh "${DOCKER_COMPOSE_NAME} ps"
+                        }
+
+            } 
+     
+        }
+       stage('Clean images'){
+           steps{
+               script{
+                          sh "docker image prune -a -f"
+               }
+           }
+       } 
+       stage('Docker Build'){
+           steps{
+               script{
+                          sh "SERVER_NAME=yaba-institution-identity.org.il ./init-letsencrypt.sh "
+                          sh "${DOCKER_COMPOSE_NAME} build"
+                          
+               }
+           }
+       } 
+    
+       stage('Docker Run'){
+           steps{
+               script{
+                          sh "${DOCKER_COMPOSE_NAME} down"
+                          sh "${DOCKER_COMPOSE_NAME} ps -a"
+                          sh "docker ps -a"
+                          sh "${DOCKER_COMPOSE_NAME} up -d"
+                    
+               }
+           }
+       } 
+    } 
+
+ post {
+        
+    
+        success {
+            updateGitlabCommitStatus name: "${GITLAB_NAME}", state: 'success'
+            emailext body: 'mki66633wweqawsedrf', subject: 'Pipeline success', to: 'boaz@ravtech.co.il'
+        }
+
+        failure {
+            updateGitlabCommitStatus name: "${GITLAB_NAME}", state: 'failed'
+            emailext attachLog: true, body: "Job ${env.JOB_NAME} [${env.BUILD_NUMBER}] (${env.BUILD_URL}) failed", recipientProviders: [developers()], subject: 'Pipeline failed', to: 'akivae@ravtech.co.il'
+        }
+
+        unstable {
+            updateGitlabCommitStatus name: "${GITLAB_NAME}", state: 'success'
+            emailext attachLog: true, body: "Job ${env.JOB_NAME} [${env.BUILD_NUMBER}] (${env.BUILD_URL}) unstable", recipientProviders: [developers()], subject: 'Pipeline unstable'
+        }
+    }
+}

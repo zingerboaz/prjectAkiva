@@ -1,0 +1,1 @@
+SYSTEM_EMAIL = 'system@yba.org.il'

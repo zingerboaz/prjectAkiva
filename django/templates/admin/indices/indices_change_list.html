@@ -1,0 +1,42 @@
+{% extends 'admin/change_list.html' %}
+{% block object-tools %}
+    <form
+            id="participation-excel-uploading"
+            method="POST"
+            action="/django/api/v1/indices/upload_participation_data"
+            enctype="multipart/form-data"
+            style="margin-bottom: 15px;"
+
+    >
+        {% csrf_token %}
+    <h3>Upload Participation Excel Data</h3>
+    <input type="file" name="file" class="vTextField" required>
+    <label>Year
+        <select name="year" required >
+            <option value="2019">תשע״ט</option>
+            <option value="2020">תש״פ</option>
+            <option value="2021" selected>תשפ״א</option>
+            <option value="2022">תשפ״ב</option>
+            <option value="2023">תשפ״ג</option>
+            <option value="2024">תשפ״ד</option>
+            <option value="2025">תשפ״ה</option>
+            <option value="2026">תשפ״ו</option>
+            <option value="2027">תשפ״ז</option>
+            <option value="2028">תשפ״ח</option>
+        </select>
+{#         <input type="text" name="year" required maxlength="4" minlength="4">#}
+    </label>
+    <label>Participation Type
+        <select name="participation_type" required>
+            <option value=""></option>
+            <option value="meetings">Meetings</option>
+            <option value="programs">Programs</option>
+        </select>
+    </label>
+    <button class="button" type="reset" style="padding: 5px 10px;">Clear</button>
+    <button class="button" type="submit" style="padding: 5px 10px;">Submit</button>
+    </form>
+    <hr>
+
+    {{ block.super }}
+{% endblock object-tools %}

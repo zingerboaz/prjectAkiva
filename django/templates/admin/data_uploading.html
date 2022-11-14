@@ -1,0 +1,27 @@
+{% extends 'admin/app_index.html' %}
+
+{% load i18n %}
+
+{% block bodyclass %}{{ block.super }}{% endblock %}
+
+{% if not is_popup %}
+{% block breadcrumbs %}
+{{  block.super }}
+{% endblock %}
+{% endif %}
+<form id="upload-participation" method="POST">
+    {% csrf_token %}
+    <label>
+        {{ 'העלאת קובץ עם נתוני השתתפות' }}
+        <input type="file" name="participation_excel" class="vTextField">
+    </label>
+
+    <button class="button" type="submit">העלה קובץ</button>
+
+</form>
+
+{% block sidebar %}
+    {{ block.super }}
+{% endblock %}
+
+

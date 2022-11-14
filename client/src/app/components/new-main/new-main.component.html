@@ -1,0 +1,10 @@
+<div class="component">
+  <app-nav-bar *ngIf="showNavBar"></app-nav-bar>
+  <div class="main">
+    <mat-progress-bar *ngIf="isProgressOn" mode="indeterminate"></mat-progress-bar>
+    <app-user-bar></app-user-bar>
+    <div class="main__header--background">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

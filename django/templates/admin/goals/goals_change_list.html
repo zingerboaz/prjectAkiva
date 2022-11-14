@@ -1,0 +1,22 @@
+{% extends 'admin/change_list.html' %}
+{% block object-tools %}
+    <form
+            id="disable-editing-date"
+            method="POST"
+            action="/django/api/v1/goals/disable_editing_date"
+            enctype="multipart/form-data"
+            style="margin-bottom: 15px;"
+
+    >
+        {% csrf_token %}
+    <h3>Set disable editing date</h3>
+    <input type="date" name="expiration_date" class="vTextField" required>
+
+
+    <button class="button" type="reset" style="padding: 5px 10px;">Clear</button>
+    <button class="button" type="submit" style="padding: 5px 10px;">Submit</button>
+    </form>
+    <hr>
+
+    {{ block.super }}
+{% endblock object-tools %}

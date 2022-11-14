@@ -1,0 +1,425 @@
+<div class="wrapper">
+  <div class="row">
+    <div class="col">
+      <div class="misradHachinuchButton" (click)="onClickToMisradHaChinuch(institutionData?.institution.semel)">
+        התמונה החינוכית
+      </div>
+      <div class="tohnitmenaelbutton" (click)="onClickToTohnitMenael()">
+        תכנת המנהל
+      </div>
+    </div>
+    <div class="col">
+      <div class="mosadOverView">
+        {{
+        institutionData?.institution.name
+        ? institutionData.institution.name
+        : ""
+        }}
+        <div class="overView-info">
+          סמל מוסד
+          <span style="font-weight: normal">
+            {{
+              institutionData?.institution.semel
+                ? institutionData.institution.semel
+                : ""
+            }}
+          </span>
+          <img src="../../assets/images/Vector (2).png"/>
+        </div>
+        <div class="overView-info">
+          מנהל מוסד
+          <span style="font-weight: normal" *ngIf="institutionData.institution.manager">
+            {{
+              institutionData.institution.manager.first_name +
+                " " +
+                institutionData.institution.manager.last_name
+            }}
+          </span>
+          <img src="../../assets/images/torso.png"/>
+        </div>
+        <div class="overView-info">
+          מנהל מרחב
+          <span style="font-weight: normal" *ngIf="institutionData.institution.area_manager">
+            {{
+              institutionData.institution.area_manager.first_name +
+                " " +
+                institutionData.institution.area_manager.last_name
+            }}
+          </span>
+          <img src="../../assets/images/torso.png"/>
+        </div>
+
+        <div class="overView-info">
+          מפקח
+          <span style="font-weight: normal" *ngIf="institutionData.institution.inspector">
+            {{
+              institutionData.institution.inspector
+            }}
+          </span>
+          <img src="../../assets/images/torso.png"/>
+        </div>
+
+        <div class="overView-info">
+            פנימיה במוסד
+            <span style="font-weight: normal" *ngIf="institutionData.institution.is_boarding">
+              {{
+                institutionData.institution.is_boarding ? "כן" : "לא"
+              }}
+            </span>
+            <span class="material-icons" style="color: #4c6597; vertical-align: middle;">
+              bed
+            </span>
+        </div>
+
+        <div class="overView-info">
+          בעלות מלאה
+          <span style="font-weight: normal" *ngIf="institutionData.institution.full_ownership">
+            {{
+              institutionData.institution.full_ownership ? "כן" : "לא"
+            }}
+          </span>
+          <span class="material-icons" style="color: #4c6597; vertical-align: middle;">
+            vpn_key
+          </span>
+      </div>
+
+      </div>
+    </div>
+    <span class="mosadLogo">
+      <img *ngIf="institutionData?.institution.logo_url" [src]="
+          institutionData?.institution.logo_url
+            ? institutionData.institution.logo_url
+            : ''
+        "/>
+    </span>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="stats" style="background-color: #fdf9ff">
+        <div appNoDataClass [data]="institutionData?.student_integration" dataClass="stats-numbers"
+             noDataClass="no-data">
+          {{
+          institutionData?.student_integration
+          ? institutionData.student_integration + " %"
+          : "אין נתונים"
+          }}
+        </div>
+        <span class="stats-name"> שילוב תלמידי ח"מ </span>
+      </div>
+    </div>
+    <div class="col">
+      <div class="stats" style="background-color: #f6ffed">
+        <div [ngClass]="{
+            'stats-numbers': institutionData?.num_of_teacher,
+            'no-data-numbers': !institutionData?.num_of_teacher
+          }">
+          {{
+          institutionData?.num_of_teacher
+          ? institutionData.num_of_teacher
+          : "אין נתונים"
+          }}
+        </div>
+        <span class="stats-name"> מורים </span>
+      </div>
+    </div>
+    <div class="col">
+      <div class="stats" style="background-color: #fffeee">
+        <div appNoDataClass [data]="institutionData?.num_of_special_class" dataClass="stats-numbers"
+             noDataClass="no-data">
+          <!--          <div [ngClass]="{'stats-numbers':institutionData?.num_of_special_class, 'no-data-numbers': !institutionData?.num_of_special_class }">-->
+          {{
+          institutionData?.num_of_special_class
+          ? institutionData.num_of_special_class
+          : "אין נתונים"
+          }}
+        </div>
+        <span class="stats-name"> כיתות חינוך מיוחד </span>
+      </div>
+    </div>
+    <div class="col">
+      <div class="stats" style="background-color: #fff5ef">
+        <div class="stats-numbers">
+          {{
+          institutionData?.num_of_class
+          ? institutionData.num_of_class
+          : "אין נתונים"
+          }}
+        </div>
+        <span class="stats-name"> כיתות רגילות </span>
+      </div>
+    </div>
+    <div class="col">
+      <div class="stats" style="background-color: #fff3f3">
+        <div class="stats-numbers">
+          {{
+          institutionData?.num_of_student
+          ? institutionData.num_of_student
+          : "אין נתונים"
+          }}
+        </div>
+        <span class="stats-name"> תלמידים </span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            <span class="mat-card-title-text"> חוזקות של המוסד </span>
+            <img class="strengthPic" src="../../assets/images/strength.png"/>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <hr/>
+          <p>
+            {{
+            institutionData?.institution_strength
+            ? institutionData.institution_strength
+            : "אין נתונים"
+            }}
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            <span class="mat-card-title-text"> הסיפור של המוסד </span>
+            <img class="bookPic" src="/assets/images/study 1.png"/>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <hr/>
+          <p>
+            {{
+            institutionData?.institution_story
+            ? institutionData.institution_story
+            : "אין נתונים"
+            }}
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            <span class="mat-card-title-text"> אתגר מרכזי שעל שולחן העבודה </span>
+            <img class="bookPic" src="/assets/images/study 1.png"/>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <hr/>
+          <p>
+            {{
+            institutionData?.institution_challenge
+            ? institutionData.institution_challenge
+            : "אין נתונים"
+            }}
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <div class="form__strength-story">
+    <div class="strength-story__title">
+      <div *ngIf="institutionData.programs.length > 0">
+        תוכניות
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-card *ngIf="institutionData.programs.length > 0 ">
+          <mat-card-header>
+            <mat-card-title>
+              <span class="mat-card-title-text">{{institutionData.programs[0].title}} </span>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <hr/>
+            <p>
+              שם התוכנית:
+              {{
+              institutionData?.programs[0].name
+              ? institutionData.programs[0].name
+              : "אין נתונים"
+              }}
+              <br/>
+              <br/>
+              מטרת התוכנית:
+              {{
+              institutionData?.programs[0].purpose
+              ? institutionData.programs[0].purpose
+              : "אין נתונים"
+              }}
+              <br/>
+              <br/>
+              קהל היעד:
+              {{
+              institutionData?.programs[0].target_audience
+              ? institutionData.programs[0].target_audience
+              : "אין נתונים"
+              }}
+              <br/>
+              <br/>
+
+              סדירות:
+              {{
+              institutionData?.programs[0].regularity
+              ? institutionData.programs[0].regularity
+              : "אין נתונים"
+              }}
+              <br/>
+              <br/>
+              מדדי הצלחה:
+              {{
+              institutionData?.programs[0].success_factors
+              ? institutionData.programs[0].success_factors
+              : "אין נתונים"
+              }}
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-card *ngIf="institutionData.programs.length > 1">
+          <mat-card-header>
+            <mat-card-title>
+              <span class="mat-card-title-text"> {{institutionData.programs[1].title}} </span>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <hr/>
+            <p>
+              שם התוכנית:
+              {{
+              institutionData?.programs[1].name
+              ? institutionData.programs[1].name
+              : "אין נתונים"
+              }}
+              <br/>
+              <br/>
+              מטרת התוכנית:
+              {{
+              institutionData?.programs[1].purpose
+              ? institutionData.programs[1].purpose
+              : "אין נתונים"
+              }}
+              <br/>
+              <br/>
+              קהל היעד:
+              {{
+              institutionData?.programs[1].target_audience
+              ? institutionData.programs[1].target_audience
+              : "אין נתונים"
+              }}
+              <br/>
+              <br/>
+              סדירות:
+              {{
+              institutionData?.programs[1].regularity
+              ? institutionData.programs[1].regularity
+              : "אין נתונים"
+              }}
+              <br/>
+              <br/>
+              מדדי הצלחה:
+              {{
+              institutionData?.programs[1].success_factors
+              ? institutionData.programs[1].success_factors
+              : "אין נתונים"
+              }}
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-card *ngIf="institutionData.programs.length > 2">
+          <mat-card-header>
+            <mat-card-title>
+              <span class="mat-card-title-text"> {{institutionData.programs[2].title}} </span>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <hr/>
+            <p>
+              שם התוכנית:
+              {{
+              institutionData?.programs[2].name
+              ? institutionData.programs[2].name
+              : "אין נתונים"
+              }}
+              <br/>
+              <br/>
+              מטרת התוכנית:
+              {{
+              institutionData?.programs[2].purpose
+              ? institutionData.programs[2].purpose
+              : "אין נתונים"
+              }}
+              <br/>
+              <br/>
+              קהל היעד:
+              {{
+              institutionData?.programs[2].target_audience
+              ? institutionData.programs[2].target_audience
+              : "אין נתונים"
+              }}
+              <br/>
+              <br/>
+              סדירות:
+              {{
+              institutionData?.programs[2].regularity
+              ? institutionData.programs[2].regularity
+              : "אין נתונים"
+              }}
+              <br/>
+              <br/>
+              מדדי הצלחה:
+              {{
+              institutionData?.programs[2].success_factors
+              ? institutionData.programs[2].success_factors
+              : "אין נתונים"
+              }}
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <form [formGroup]="formGroup" (ngSubmit)="onSave()">
+      <div class="form__strength-story">
+        <div class="strength-story__title">
+          <img src="/assets/images/graph-bar.svg"/>
+          השוואה למוסדות דומים
+        </div>
+        במערכת זו קיימת השוואה בין המוסד שלך למוסדות אחרים הדומים לך בנתונים.
+        <br/>
+        בחר מתוך הרשימה את המוסדות הדומים ביותר למוסד שלך.
+        <br/><br/>
+        <ng-select
+          formControlName="similarInstitutions"
+          [multiple]="true"
+          [placeholder]="'בחר מוסדות'"
+          [typeahead]
+          notFoundText="לא נמצאו מוסדות המתאימים לחיפוש"
+          [closeOnSelect]="false"
+          [items]="institutionsList"
+          bindLabel="name"
+        >
+        </ng-select>
+      </div>
+
+      <button class="buttons__save">שמירה</button>
+    </form>
+  </div>
+</div>

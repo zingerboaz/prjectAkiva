@@ -1,0 +1,22 @@
+<div class="wrapper">
+  <label class="wrapper__label">{{label}}</label>
+  <div class="wrapper__input">
+    <input matInput [matDatepicker]="picker" [placeholder]="placeHolder" [formControl]="localControl"/>
+    <mat-datepicker #picker></mat-datepicker>
+    <div class="datepicker-icon" (click)="picker.open()">
+      <svg
+        width="25"
+        height="27"
+        viewBox="0 0 25 27"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        #calanderIcon
+      >
+        <path
+          d="M22.377 2.84668H18.377V0.84668H16.377V2.84668H8.37695V0.84668H6.37695V2.84668H2.37695C1.27695 2.84668 0.376953 3.74668 0.376953 4.84668V24.8467C0.376953 25.9467 1.27695 26.8467 2.37695 26.8467H22.377C23.477 26.8467 24.377 25.9467 24.377 24.8467V4.84668C24.377 3.74668 23.477 2.84668 22.377 2.84668ZM22.377 24.8467H2.37695V10.8467H22.377V24.8467ZM22.377 8.84668H2.37695V4.84668H6.37695V6.84668H8.37695V4.84668H16.377V6.84668H18.377V4.84668H22.377V8.84668Z"
+          fill="#397CB7"
+        />
+      </svg>
+    </div>
+  </div>
+</div>

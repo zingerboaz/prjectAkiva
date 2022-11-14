@@ -1,0 +1,96 @@
+.panels__content {
+    header{
+        text-align: right;
+        font-size: 35px;
+        padding: 12px;
+    }
+  }
+
+  .component_content {
+    padding-bottom: 3rem;
+    align-items: center;
+    .content__goal {
+      direction: rtl;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgb(105,164,190, 0.5);
+    }
+  }
+
+  .content__action {
+    direction: rtl;
+    width: 95%;
+    // align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 0 3rem 0;
+    border-bottom: 1px solid rgb(105,164,190, 0.5);
+    border: 1px solid #397cb7;
+    border-radius: 8px;
+    margin: 3rem;
+
+
+    .action__header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .header__name,
+      .header__measure {
+        width: 30rem;
+        margin-left: 4rem;
+      }
+      .action__add-milestone {
+        padding-top: 2rem;
+        color: #397cb7;
+        font-size: 1.6rem;
+        cursor: pointer;
+      }
+    }
+    .milestone {
+      display: flex;
+      flex-direction: row;
+      margin-top: 1rem;
+      padding-right: 1rem;
+      .milestone__date {
+        width: 30rem;
+        margin-left: 4rem;
+      }
+      .milestone__description {
+        width: 80rem;
+      }
+    }
+  }
+
+  .component__save {
+    width: 80rem;
+    display: flex;
+    justify-content: flex-start;
+
+    .save__btn {
+      border: none;
+      background-color: #397cb7;
+      color: white;
+      border-radius: 50px;
+      height: 4.5rem;
+      width: 13rem;
+      font-size: 2.2rem;
+      margin-left: 3rem;
+      margin-bottom: 1rem;
+      cursor: pointer;
+    }
+    .save__btn--disabled{
+      background-color: #658294;
+    }
+  }
+
+  ::ng-deep.mat-dialog-container {
+    padding: 0px !important;
+    min-width: 700px;
+    min-height: 400px;
+    height: 70rem;
+    width: 100rem;
+    border-radius: 10px;
+  }
+  

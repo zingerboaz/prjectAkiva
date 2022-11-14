@@ -1,0 +1,39 @@
+ <mat-progress-bar *ngIf="isProgressOn" mode="indeterminate"></mat-progress-bar>
+ <div class="background">
+
+  <div class="login-form">
+    <form class="login-form" [formGroup]="loginForm">
+      <div class="logo">
+        <img src="../../../assets/images/logo.png" alt="" />
+      </div>
+      <div class="row">
+        <input
+          class="input"
+          placeholder="שם משתמש"
+          dir="rtl"
+          [formControl]="loginForm.controls.email"
+        />
+      </div>
+      <div class="row">
+        <input
+          class="input"
+          placeholder="סיסמה"
+          dir="rtl"
+          [formControl]="loginForm.controls.password"
+          type="password"
+        />
+      </div>
+      <div
+        class="button"
+        [ngClass]="!loginForm.valid ? 'div-disabled' : ''"
+        (click)="submit()"
+      >
+        כניסה
+      </div>
+      <div class="password" style="cursor: pointer" (click)="forgotPassword()">
+        ): שכחתי סיסמה
+      </div>
+    </form>
+  </div>
+
+</div>
